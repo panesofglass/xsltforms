@@ -76,11 +76,12 @@
 				<xf:label>Refresh intance view</xf:label>
 			</xf:submit>
 			<xf:group ref="instance('debugger')/instance[. != '']">
-				<p class="code"><xf:output value="serialize(instance('view'),'yes')"/></p>
+				<p class="code"><xf:output value="serialize(instance('view'),'application/xml','yes')"/></p>
 			</xf:group>
 			<table>
 				<tr>
 					<td>HTML Elements Count: <xf:output value="xsltforms:htmlelements"/><br/>
+						XSLT Transformation Time: <xf:output value="xsltforms:transformtime"/>ms<br/>
 						HTML Parsing Time: <xf:output value="xsltforms:htmltime"/>ms<br/>
 						HTML Creation Time: <xf:output value="xsltforms:creatingtime"/>ms
 					</td>

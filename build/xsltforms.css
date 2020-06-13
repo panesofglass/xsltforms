@@ -1,8 +1,8 @@
 /*
-XSLTForms 1.2 (651)
+XSLTForms 1.5beta (655)
 XForms 1.1+ with XPath 1.0+ Engine
 
-Copyright (C) 2018 agenceXML - Alain COUTHURES
+Copyright (C) 2020 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
 
 This library is free software; you can redistribute it and/or
@@ -56,7 +56,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 	color				: #000;
 	text-align			: center;
 	background-color	: #f8f8f8;
-	background-image	: url(titleBackground.png);
+	background-image	: url(../img/titleBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-title input {
 	width				: 3em;
@@ -77,7 +77,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 	background			: #f0f0f0;
 }
 .xsltforms-calendar .xsltforms-calendar-names {
-	background-image	: url(thBackground.png);
+	background-image	: url(../img/thBackground.png);
 }
 .xsltforms-calendar .xsltforms-calendar-name {
 	border-bottom		: 1px solid #000;
@@ -154,7 +154,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 	border-top			: thin solid #888888;
 	display: none;
 }
-div.xforms-dialog {
+xforms-dialog, div.xforms-dialog {
 	display				: none;
 	position			: absolute;
 	width				: 400px;
@@ -170,7 +170,7 @@ div.xforms-dialog {
 	-webkit-box-sizing	: border-box;
 	box-sizing			: border-box;
 }
-#xforms-dialog-surround {
+xforms-dialog-surround, #xforms-dialog-surround {
 	display				: none;
 	position			: absolute;
 	left				: 0;
@@ -188,6 +188,85 @@ body {
 .xforms-disabled, span.xforms-control.xforms-appearance-minimal.xforms-disabled {
 	display				: none !important;
 }
+xforms-group.xforms-enabled {
+	display:	block;
+}
+.xforms-enabled, span.xforms-control.xforms-appearance-minimal.xforms-enabled {
+	display				: inline;
+}
+xforms-case:not([xf-selected = "true"]) {
+	display: none;
+}
+xforms-group[xf-ref]:not([xf-bound]), xforms-group[xf-bind]:not([xf-bound]) {
+	display: none;
+}
+xforms-group:not([xf-ref]):not([xf-bind]), xforms-group[xf-bound]:not([xf-notrelevant]) {
+	display: block;
+}
+xforms-case[xf-selected = "true"] {
+	display: block;
+}
+xforms-trigger[xf-ref]:not([xf-bound]), xforms-trigger[xf-bind]:not([xf-bound]), xforms-trigger[xf-notrelevant] {
+	display: none;
+}
+xforms-trigger:not([xf-ref]):not([xf-bind]), xforms-trigger[xf-bound]:not([xf-notrelevant]), xforms-submit {
+	display: inline;
+}
+xforms-repeat[xf-bound]:not([xf-notrelevant]) {
+	display: block;
+}
+xforms-repeat[xf-bound]:not([xf-notrelevant]) > xforms-repeat-item {
+	display: block;
+}
+xforms-select[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
+	display: inline;
+}
+xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance="full"] {
+	display: block;
+}
+xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+}
+xforms-select[xf-appearance="full"] > xforms-body > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item, xforms-select[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item {
+	display: block;
+}
+xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-item, xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-choices, xforms-select:not([xf-appearance="full"]) > xforms-body > xforms-itemset {
+	display: none;
+}
+xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]) {
+	display: inline;
+}
+xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"] {
+	display: block;
+}
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-label {
+	display: block;
+	font-weight: bold;
+	font-style: italic;
+}
+xforms-select1[xf-appearance="full"] > xforms-body > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-choices > xforms-itemset > xforms-item, xforms-select1[xf-appearance="full"] > xforms-body > xforms-itemset > xforms-item {
+	display: block;
+}
+xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-item, xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-choices, xforms-select1:not([xf-appearance="full"]) > xforms-body > xforms-itemset {
+	display: none;
+}
+xforms-itemset > xforms-label {
+	display: none;
+}
+xforms-output[xf-value], xforms-output[xf-bound]:not([xf-notrelevant]) {
+	display: inline;
+}
+xforms-input[xf-bound]:not([xf-notrelevant]), xforms-textarea[xf-bound]:not([xf-notrelevant]), xforms-secret[xf-bound]:not([xf-notrelevant]), xforms-upload[xf-bound]:not([xf-notrelevant]), xforms-range[xf-bound]:not([xf-notrelevant]) {
+	display: inline;
+}
+*[xf-repeat-ref]:not([xf-bound]) {
+	display: none;
+}
+*[xf-repeat-bind]:not([xf-bound]) {
+	display: none;
+}
 span.xforms-required-icon, span.xforms-alert, span.xforms-help, span.xforms-hint {
 	vertical-align		: top;
 }
@@ -199,7 +278,11 @@ span.xforms-required-icon, span.xforms-alert, span.xforms-help, span.xforms-hint
     display				: inline;
     margin-left			: 3px;
 }
-span.xforms-help-value, span.xforms-alert-value, span.xforms-hint-value { 
+xforms-input[xf-bound][xf-required] > xforms-required::after {
+	content: " *";
+	color: red;
+}
+xforms-alert, xforms-help, xforms-hint, span.xforms-help-value, span.xforms-alert-value, span.xforms-hint-value { 
 	display				: none;
 	background-color	: #ffffee;
 	position			: absolute;
@@ -223,11 +306,39 @@ span.xforms-alert:hover span.xforms-alert-value {
 	background-color	: #ffeeee;
 	display				: inline;
 }
-span.xforms-hint:hover span.xforms-hint-value {
-	display				: inline;
+xforms-input[xf-invalid] > xforms-alert-mark {
+	display: inline;
+}
+xforms-alert-mark::after {
+	content: ' \274C';
+	color: red;
+}
+xforms-alert-mark:hover + xforms-alert {
+	display: inline;
+	cursor: help;
+}
+xforms-hint-mark::after {
+	content: ' \1D422';
+	color: orange;
+}
+xforms-hint-mark:hover + xforms-hint, span.xforms-hint:hover span.xforms-hint-value {
+	display: inline;
+	cursor: help;
 }
 span.xforms-help:hover span.xforms-help-value {
-	display				: inline;
+	display: inline;
+}
+xforms-help-mark::after {
+	content: ' \2754';
+	color: green;
+}
+xforms-help-mark:hover + xforms-help {
+	display: inline;
+	cursor: help;
+}
+xforms-label:hover + xforms-help[xf-appearance="minimal"]:not([href]) {
+	display: inline;
+	cursor: help;
 }
 span.xforms-alert-icon, span.xforms-help-icon, span.xforms-hint-icon {
 	cursor				: help;
@@ -239,24 +350,27 @@ span.xforms-alert-icon, span.xforms-help-icon, span.xforms-hint-icon {
 	box-sizing			: border-box;
 }
 span.xforms-alert-icon {
-	background-image	: url(icon_error.gif); 
+	background-image	: url(../img/icon_error.gif); 
 	background-repeat : no-repeat;
 }
 span.xforms-help-icon {
-	background-image	: url(icon_help.gif); 
+	background-image	: url(../img/icon_help.gif); 
 	background-repeat : no-repeat;
 }
 span.xforms-hint-icon {
-	background-image	: url(icon_hint.gif); 
+	background-image	: url(../img/icon_hint.gif); 
 	background-repeat : no-repeat;
 }
 span.focus {
 	display:none;
 }
+input[xf-numeric] {
+	text-align: right;
+}
 span.xforms-message {
 	display				: none;
 }
-.xsltforms-range-rail {
+xforms-range-rail, .xsltforms-range-rail {
 	width: 200px;
 	height: 4px;
 	border: 1px solid #999999;
@@ -264,17 +378,17 @@ span.xforms-message {
 	margin: 6px 15px 0 10px;
 	display: inline-block;
 }
-.xsltforms-range-cursor {
+xforms-range-cursor, .xsltforms-range-cursor {
 	margin: 0;
 	margin-top: -8px;
 	margin-left: -5px;
 	width: 17px; 
 	height: 17px;
 	position: absolute;
-	background-image:url('ball.png');
+	background-image:url('../img/ball.png');
 	outline-style: none;
 }
-.xforms-readonly input, .xforms-readonly textarea, .xforms-readonly select, .xforms-readonly option {
+xforms-input[xf-readonly] > xforms-body, .xforms-readonly input, .xforms-readonly textarea, .xforms-readonly select, .xforms-readonly option {
 	background-color	: #f8f8f8;
 	color				: #333333;
 }
@@ -298,13 +412,13 @@ div#statusPanel {
 	-webkit-box-sizing	: border-box;
 	box-sizing			: border-box;
 }
-.xforms-trigger a, .xforms-trigger a:link, .xforms-trigger a:hover, .xforms-trigger a:visited {
+xforms-trigger a, xforms-trigger a:link, xforms-trigger a:hover, xforms-trigger a:visited {
 	text-decoration: none;
 	color: #000000;
 	border: none !important;
 	cursor: pointer;
 }
-.xforms-label img{
+xforms-label img{
 	border: none !important;
 }
 img.xforms-value {
@@ -315,4 +429,61 @@ img.xforms-value {
 	color: #000000;
 	border: none !important;
 	cursor: pointer;
+}
+xforms-action,
+xforms-alert-mark,
+xforms-bind,
+xforms-component,
+xforms-delete,
+xforms-dialog,
+xforms-dispatch,
+xforms-group,
+xforms-hide,
+xforms-input,
+xforms-insert,
+xforms-instance,
+xforms-itext,
+xforms-load,
+xforms-message,
+xforms-model,
+xforms-options,
+xforms-output,
+xforms-range,
+xforms-rebuild,
+xforms-recalculate,
+xforms-refresh,
+xforms-repeat,
+xforms-reset,
+xforms-revalidate,
+xforms-script,
+xforms-secret,
+xforms-select,
+xforms-select1,
+xforms-send,
+xforms-setfocus,
+xforms-setindex,
+xforms-setnode,
+xforms-setselection,
+xforms-setvalue,
+xforms-show,
+xforms-split,
+xforms-submission,
+xforms-text,
+xforms-textarea,
+xforms-timer,
+xforms-toggle,
+xforms-translation,
+xforms-tree,
+xforms-unload,
+xforms-upload,
+xforms-value,
+xforms-var,
+xforms-wrap {
+	display: none
+}
+xforms-item[xf-appearance="full"] {
+	display: block !important;
+}
+xforms-input[xf-numeric] {
+	text-align: right;
 }
